@@ -188,6 +188,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0
 
+# Camera
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.camera.shutter.disable=1
+
 # BCM Wifi
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 
