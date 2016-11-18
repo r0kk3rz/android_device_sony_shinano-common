@@ -46,7 +46,7 @@ on init
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
 
-# disabeld to prevent problems with systemd mount    mkdir /tmp
+    mkdir /tmp
     mount tmpfs tmpfs /tmp nosuid mode=0755,uid=0,gid=0
     chmod 0664 /proc/rdtag
     chown root system /proc/rdtag
