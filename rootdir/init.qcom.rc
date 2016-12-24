@@ -180,6 +180,9 @@ on boot
     # For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
+    # Allow QMUX daemon to assign port open wait time
+    chown radio radio /sys/devices/virtual/smdpkt/smdcntl0/open_timeout 
+
     # For setting tcp delayed ack
     chown system system /sys/kernel/ipv4/tcp_delack_seg
     chown system system /sys/kernel/ipv4/tcp_use_userconfig
@@ -558,6 +561,11 @@ service sensors /system/bin/sensors.qcom
     class main
     user root
     group sensors radio system
+
+service sensorservice /system/bin/sensorservice
+    class late_start
+    user root
+    group sensors root
 
 service time_daemon /system/bin/time_daemon
     class late_start
